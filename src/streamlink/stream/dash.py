@@ -287,9 +287,7 @@ class DASHStream(Stream):
         audio: List[Optional[Representation]] = []
 
         # Search for suitable video and audio representations
-        for aset in mpd.periods[period].adaptationSets:
-            if aset.contentProtections:
-                raise PluginError(f"{source} is protected by DRM")
+        for aset in mpd.periods[0].adaptationSets:
             for rep in aset.representations:
                 if rep.contentProtections:
                     raise PluginError(f"{source} is protected by DRM")
