@@ -1077,6 +1077,24 @@ def build_parser():
     transport.add_argument("--http-stream-timeout", help=argparse.SUPPRESS)
 
     transport_ffmpeg.add_argument(
+        "--ffmpeg_dkey",
+        metavar="DKEY",
+        type=str,
+        help="""
+        Decryption Key 1
+        Example: --ffmpeg_dkey "<key>"
+        """
+    )
+    transport_ffmpeg.add_argument(
+        "--ffmpeg_dkey_2",
+        metavar="DKEY",
+        type=str,
+        help="""
+        Decryption Key 2
+        Example: --decryption_key_2 "<key>"
+        """
+    )
+    transport_ffmpeg.add_argument(
         "--ffmpeg-ffmpeg",
         metavar="FILENAME",
         help="""
@@ -1314,6 +1332,8 @@ _ARGUMENT_TO_SESSIONOPTION: List[Tuple[str, str, Optional[Callable[[Any], Any]]]
     ("hls_segment_key_uri", "hls-segment-key-uri", None),
     ("hls_audio_select", "hls-audio-select", None),
     ("dash_manifest_reload_attempts", "dash-manifest-reload-attempts", None),
+    ("ffmpeg_dkey", "ffmpeg_dkey", None),
+    ("ffmpeg_dkey_2", "ffmpeg_dkey_2", None),
     ("ffmpeg_ffmpeg", "ffmpeg-ffmpeg", None),
     ("ffmpeg_no_validation", "ffmpeg-no-validation", None),
     ("ffmpeg_verbose", "ffmpeg-verbose", None),
